@@ -31,18 +31,22 @@ public class Cerveza extends Articulo implements Alcoholico {
 	}
 	@Override
 	public void visualizarArticulo() {
-		// TODO Auto-generated method stub
+		System.out.println(this.toString());
 		
 	}
 	@Override
 	public boolean saludable() {
-		// TODO Auto-generated method stub
+		if (getCereales().equals("lupulo")) {
+			return true;
+		}else {
 		return false;
+		}
 	}
 	@Override
 	public void preciototal() {
 		double total;
 		total=getPrecio()+getPrecio()*21/100+calcularTasa();
+		System.out.println("El precio total es de "+total+"€");
 	}
 	@Override
 	public double calcularTasa() {
@@ -62,5 +66,11 @@ public class Cerveza extends Articulo implements Alcoholico {
 		return false;
 		}
 	}
+	@Override
+	public String toString() {
+		return origen + ", " + cereales + ", " + gradosAlcohol + ", " + super.toString();
+	}
+	
+	
 	
 }

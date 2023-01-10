@@ -52,17 +52,23 @@ public class Refresco extends Articulo {
 	}
 	@Override
 	public void visualizarArticulo() {
-		toString();
+		System.out.println(this.toString());
+		
 		
 	}
 	@Override
 	public boolean saludable() {
-		// TODO Auto-generated method stub
+		if (getCantidadAzucar() < 20) {
+			return true;
+		}else {
 		return false;
+		}
 	}
 	@Override
 	public void preciototal() {
-		// TODO Auto-generated method stub
+		double total;
+		total=getPrecio()+getPrecio()*21/100;
+		System.out.println("El precio total es de "+total+"€");
 		
 	}
 	public void visualizarPropiedades() {
