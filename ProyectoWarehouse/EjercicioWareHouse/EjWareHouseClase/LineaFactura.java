@@ -29,7 +29,9 @@ public class LineaFactura {
 		this.articulo = articulo;
 	}
 	public double precioTotal() {
-		return 1.1;
+		double totalp =0;
+		totalp = cantidad * articulo.getPrecio();
+		return totalp;
 	}
 	
 

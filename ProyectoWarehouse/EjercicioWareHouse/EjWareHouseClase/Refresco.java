@@ -9,8 +9,18 @@ public class Refresco extends Articulo {
 		this.zumo=zumo;
 	}
 	
-	
-	
+
+
+
+
+	@Override
+	public String toString() {
+		return sabor + ", " + zumo + ", " + gaseoso + ", " + cantidadAzucar + ", " + super.toString();
+	}
+
+
+
+
 
 	private String sabor;
 	private boolean zumo;
@@ -42,7 +52,7 @@ public class Refresco extends Articulo {
 	}
 	@Override
 	public void visualizarArticulo() {
-		// TODO Auto-generated method stub
+		toString();
 		
 	}
 	@Override
@@ -56,6 +66,7 @@ public class Refresco extends Articulo {
 		
 	}
 	public void visualizarPropiedades() {
+		System.out.println( sabor + ", " + zumo + ", " + gaseoso + ", " + cantidadAzucar);
 		
 	}
 	

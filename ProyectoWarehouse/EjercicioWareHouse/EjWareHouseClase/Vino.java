@@ -1,6 +1,6 @@
 package EjWareHouseClase;
 
-public class Vino extends Articulo {
+public class Vino extends Articulo implements Alcoholico {
 	private String color;
 	private String origen;
 	private int anio;
@@ -52,13 +52,34 @@ public class Vino extends Articulo {
 	}
 	@Override
 	public boolean saludable() {
-		// TODO Auto-generated method stub
+		if (origen.equals("Navarra")) {
+			return true;
+		}else {
 		return false;
+		}
 	}
 	@Override
 	public void preciototal() {
-		// TODO Auto-generated method stub
-		
+		double total;
+		total=getPrecio()+getPrecio()*21/100+calcularTasa();
+	}
+	@Override
+	public double calcularTasa() {
+		double tasa;
+		if (esFuerte()) {
+			tasa=getCapacidadBotella()*TASA_BEBIDAS_FUERTES/10000;
+		}else {
+			tasa=getCapacidadBotella()*TASA_BEBIDAS_SUABES/10000;
+		}
+		return tasa;
+	}
+	@Override
+	public boolean esFuerte() {
+		if (getGradosAlcohol()>7) {
+			return true;
+		}else {
+		return false;
+		}
 	}
 	
 }

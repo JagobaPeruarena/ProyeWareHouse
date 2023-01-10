@@ -57,10 +57,14 @@ public abstract class Articulo {
 		this.stock = stock;
 	}
 	public void incrementarStock(int cantidad) {
-		
+		this.stock = this.stock +cantidad;
 	}
 	public void disminuirStock(int cantidad) {
-		
+		this.stock = this.stock - cantidad;
+		if (stock<0) {
+			System.out.println("No queda mas stock");
+			this.stock=0;
+		}
 	}
 	public abstract void visualizarArticulo();
 	public abstract boolean saludable();

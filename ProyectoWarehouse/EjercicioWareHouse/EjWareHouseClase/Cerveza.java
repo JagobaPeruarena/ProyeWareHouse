@@ -1,6 +1,6 @@
 package EjWareHouseClase;
 
-public class Cerveza extends Articulo {
+public class Cerveza extends Articulo implements Alcoholico {
 	public Cerveza(String code, String name, String mark, int capacidadBotella, double precio, int stock, String cereales, String origen,int gradosAlcohol) {
 		super(code, name, mark, capacidadBotella, precio, stock);
 		this.origen= origen;
@@ -41,8 +41,26 @@ public class Cerveza extends Articulo {
 	}
 	@Override
 	public void preciototal() {
-		// TODO Auto-generated method stub
-		
+		double total;
+		total=getPrecio()+getPrecio()*21/100+calcularTasa();
+	}
+	@Override
+	public double calcularTasa() {
+		double tasa;
+		if (esFuerte()) {
+			tasa=getCapacidadBotella()*TASA_BEBIDAS_FUERTES/10000;
+		}else {
+			tasa=getCapacidadBotella()*TASA_BEBIDAS_SUABES/10000;
+		}
+		return tasa;
+	}
+	@Override
+	public boolean esFuerte() {
+		if (getGradosAlcohol()>13.5) {
+			return true;
+		}else {
+		return false;
+		}
 	}
 	
 }
